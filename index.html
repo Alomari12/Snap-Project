@@ -1,31 +1,166 @@
 <!doctype html>
 <html>
   <head>
-    <title>LA TV Shows | Home</title>
-    <meta name="description" content="A Catalog of Shows Set in Los Angeles" />
+    <title>Coffee Catalog Starter</title>
+    <meta name="description" content="A catalog of coffee cafes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Styles + fonts -->
     <link rel="stylesheet" href="style.css" />
-    <script type="text/javascript" src="scripts.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Cormorant+Garamond:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
     <header class="main-header">
-      <h1 class="title">LA TV Shows</h1>
+      <div class="header-overlay"></div>
+      <div class="header-content">
+        <!--  Coffee Brand -->
+        <p class="eyebrow">Coffee...a hug no hands can give</p>
+
+        <!-- Main title -->
+        <h1 class="title">Your Daily Coffee Journey</h1>
+
+        <!-- Brand description -->
+        <p class="tagline">
+          Explore cafés, flavors, and stories across cities — one cup at a time
+        </p>
+      </div>
     </header>
-    <div id="card-container"></div>
-    <div class="card" style="display: none">
+
+    <main>
+      <!-- CONTROLS for user input for sorting, filtering, and searching data -->
+      <section class="controls-section">
+        <div class="controls-container">
+          <div class="controls">
+            <!-- Sort dropdown -->
+            <div class="control-item">
+              <label for="sort">Sort by</label>
+              <select id="sort">
+                <option value="name">Name (A-Z)</option>
+                <option value="rating">Rating (High to Low)</option>
+              </select>
+            </div>
+
+            <!-- Filter dropdown -->
+            <div class="control-item">
+              <label for="filter">Filter by type</label>
+              <select id="filter">
+                <option value="all">All Types</option>
+                <option value="Yemeni">Yemeni</option>
+                <option value="Arabic">Arabic</option>
+                <option value="American">American</option>
+              </select>
+            </div>
+
+            <!-- Search input -->
+            <div class="control-item control-search">
+              <label for="search">Search cafés</label>
+              <input
+                type="text"
+                id="search"
+                placeholder="Search by café name..."
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STATS: dynamically updated summary based on displayed cafés -->
+      <section class="stats-section">
+        <div class="stats">
+          <!-- Total cafés -->
+          <div class="stat-item">
+            <span id="total-count" class="stat-number">0</span>
+            <span class="stat-label">Total Cafés</span>
+          </div>
+
+          <!-- Unique locations -->
+          <div class="stat-item">
+            <span id="location-count" class="stat-number">0</span>
+            <span class="stat-label">Locations</span>
+          </div>
+
+          <!-- Average rating -->
+          <div class="stat-item">
+            <span id="avg-rating" class="stat-number">0</span>
+            <span class="stat-label">Avg Rating</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CATALOG: container where café cards are dynamically rendered -->
+      <section class="catalog-section">
+        <div id="card-container"></div>
+      </section>
+    </main>
+
+    <!-- TEMPLATE CARD: blueprint to  dynamically generate caffe cards -->
+    <div class="card template-card" style="display: none">
+      <!-- Main Cafe Image Section -->
+      <div class="card-image-wrap">
+        <img src="" alt="Café image" />
+      </div>
+
+      <!-- Content section -->
       <div class="card-content">
-        <h2>TV Show Title</h2>
-        <img src="" alt="TV Show Poster" />
+        <!-- MainTitle and badge -->
+        <div class="card-top">
+          <h2 class="card-title">Cafe Name</h2>
+          <span class="card-badge">Featured</span>
+        </div>
+
+        <!-- cafe details -->
         <ul>
-          <li>Bullet Point 1</li>
-          <li>Bullet Point 2</li>
-          <li>Bullet Point 3</li>
+          <li class="card-location"></li>
+          <li class="card-type"></li>
+          <li class="card-rating"></li>
         </ul>
+
+        <!-- Button for modal -->
+        <button class="details-button">View Café Details</button>
       </div>
     </div>
-    <div class="footer">
-      <button onclick="quoteAlert()">Get A Quote!</button>
-      <button onclick="removeLastCard()">Remove A Card!</button>
+
+    <!-- MODAL: displays detailed café information when a card is clicked -->
+    <div id="modal-overlay" class="hidden">
+      <div id="modal">
+        <!-- Close button -->
+        <button id="close-modal" aria-label="Close modal">&times;</button>
+
+        <!-- Modal header -->
+        <div class="modal-header">
+          <p class="modal-eyebrow">CAFE SPOTLIGHT</p>
+          <h2 id="modal-title">Cafe Name</h2>
+        </div>
+
+        <!-- Main content -->
+        <div class="modal-main">
+          <!-- Main image -->
+          <img id="modal-main-img" src="" alt="Café detail image" />
+
+          <!-- Text infor -->
+          <div class="modal-info">
+            <p id="modal-description"></p>
+
+            <!-- Extraa details -->
+            <div class="modal-extra">
+              <p id="modal-drink"></p>
+              <p id="modal-rating"></p>
+              <p id="modal-location"></p>
+              <p id="modal-vibe"></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gallery -->
+        <div id="modal-gallery" class="modal-gallery"></div>
+      </div>
     </div>
+
+    <!-- SCRIPT: handles data operations, rendering, and interaction logic -->
+    <script src="scripts.js"></script>
   </body>
 </html>
