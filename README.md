@@ -92,11 +92,10 @@ Example:
 
 ## 💡 Why I Built This
 
-I built this project during my own coffee journey, spending time in cafés and noticing how each place has its own story and vibe.
+Every morning, this is where your journey begins, just like mine!  
+Or maybe it’s on a quiet weekend,  meeting someone close to your heart, spending time with family, or simply enjoying a moment to yourself.
 
-Coffee brings people together. Whether it’s studying, working, meeting a beloved person, or enjoying a quiet moment, cafés create different experiences.
+I built this to capture that feeling ,  a simple café catalog where you can explore places based on your own preferences.
 
-I wanted to build something simple and meaningful at the same time. I wanted a product that resonates with me as a coffee lover, so I decided to build  a catalog focused only on cafés, where users can explore places based on their preferences through search, filtering, and sorting.
-
-Technically, I focused on clean structure and building a smooth flow from data  to operations to UI.
-```
+☕ Every café has a story — maybe this helps you find yours.
+— Ahmed, your morning coffee friend
