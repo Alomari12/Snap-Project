@@ -4,7 +4,7 @@ Welcome to the Coffee Catalog, an interactive web application where users can ex
 
 I built this project for Snap Academy using HTML, CSS, and JavaScript.
 
-Here is a sneak peak of my app...
+Here is a sneak peek of my app...
 ![App Preview](image.png)
 
 ---
